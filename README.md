@@ -7,7 +7,6 @@ This repository follows a structured Git branching model with the following bran
 
 | Branch       | Purpose                        | Who Can Push            | Access Level              |
 |--------------|--------------------------------|-------------------------|---------------------------|
-| `main`       | Source of truth / base branch  | CI/CD only              | Protected                 |
 | `production` | Live production environment    | CI/CD only              | No direct push (PR only)  |
 | `develop`    | Integration branch             | All developers          | Via Pull Request (PR)     |
 | `release`    | Release preparation            | Tech lead               | Controlled access         |
@@ -15,6 +14,9 @@ This repository follows a structured Git branching model with the following bran
 | `hotfix`     | Emergency production fixes     | Senior developer        | Controlled access         |
 | `feature`    | New feature development        | Individual developers   | Direct push               |
 | `bugfix`     | Bug fix development            | Individual developers   | Direct push               |
+
+> **Note:** `production` is the primary long-lived branch representing the live environment.
+> The default `main` branch serves as the repository's initial base; all active workflow branches are derived from or merge into `production`.
 
 ---
 

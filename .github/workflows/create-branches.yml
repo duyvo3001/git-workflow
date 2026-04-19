@@ -22,17 +22,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Get the SHA of the default branch (main)
-          BASE_SHA=$(git rev-parse HEAD)
-
           create_branch() {
             local BRANCH=$1
             # Check if branch already exists on remote
             if git ls-remote --exit-code --heads origin "$BRANCH" > /dev/null 2>&1; then
               echo "Branch '$BRANCH' already exists. Skipping."
             else
-              git checkout -b "$BRANCH"
-              git checkout -
+              git branch "$BRANCH"
               git push origin "$BRANCH"
               echo "Branch '$BRANCH' created successfully."
             fi
